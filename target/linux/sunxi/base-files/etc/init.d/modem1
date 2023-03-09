@@ -1,0 +1,25 @@
+#!/bin/sh /etc/rc.common
+ 
+USE_PROCD=1
+ 
+START=99
+STOP=01
+
+
+CONFIGURATION=modems
+MODEM="modem1"
+ 
+start_service() {
+
+	config_load "${CONFIGURATION}"
+	local port
+	
+	config_get port ports $MODEM	
+	
+	procd_open_instance
+	procd_set_param command /bin/sh "/root/modem.sh" $port $MODEM
+	procd_set_param file /etc/config/modems
+	procd_set_param stdout 1
+	procd_set_param stderr 1
+	procd_close_instance
+}

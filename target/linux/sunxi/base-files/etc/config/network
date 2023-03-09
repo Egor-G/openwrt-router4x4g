@@ -1,0 +1,39 @@
+
+config interface 'loopback'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+	option device 'lo'
+
+config interface 'lan'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option delegate '0'
+	option device 'eth0'
+	option ipaddr '192.168.1.20'
+	option ifname 'eth0'
+
+config interface 'wan0'
+	option proto 'dhcp'
+	option device 'usb0'
+	option delegate '0'
+	option ifname 'usb0'
+
+config interface 'wan1'
+	option proto 'dhcp'
+	option device 'usb1'
+	option delegate '0'
+	option ifname 'usb1'
+
+config interface 'wan2'
+	option proto 'dhcp'
+	option device 'usb2'
+	option delegate '0'
+	option ifname 'usb2'
+
+config interface 'wan3'
+	option proto 'dhcp'
+	option device 'usb3'
+	option delegate '0'
+	option ifname 'usb3'
+
